@@ -15,11 +15,13 @@ export default function QueryProcessor(query: string): string {
     }
     return max.toString();    
   } else if (query.includes("plus")) {
-    let s = query.substring(8);
-    s = query.split(" ");
-    let num1 = parseInt(s[s.length - 3]);
-    let num2 = parseInt(s[s.length - 1].substring(0, (s[s.length - 1]).length));
-    return (num1 + num2).toString();
+    let q = query.substring(8);
+    let s = q.split(" ");
+    let sum = 0;
+    for (let i = 0; i < s.length; i++) {
+      sum += parseInt(s[i]);
+    }
+    return (sum).toString();
   } else if (query.includes("multiplied")) {
     let s = query.split(" ");
     let num1 = parseInt(s[s.length - 4]);
@@ -56,8 +58,11 @@ export default function QueryProcessor(query: string): string {
         return num.toString();
       }
     }
-  } else if (query.includes("")) {
-    return ("");
+  } else if (query.includes("power")) {
+    let s = query.split(" ");
+    let num1 = parseInt(s[s.length - 6]);
+    let num2 = parseInt(s[s.length - 1].substring(0, (s[s.length - 1]).length));
+    return (num1 ** num2).toString();
   } else if (query.includes("")) {
     return ("");
   } else if (query.includes("")) {
