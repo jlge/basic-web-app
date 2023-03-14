@@ -47,8 +47,8 @@ export default function QueryProcessor(query: string): string {
     let num1 = parseInt(s[s.length - 3]);
     let num2 = parseInt(s[s.length - 1].substring(0, (s[s.length - 1]).length));
     return (num1 - num2).toString();
-  } else if (query.includes("primes")) {
-    let splitted = query.substring(60).split(", ");
+  } else if (query.includes("Which of the following numbers are primes:")) {
+    let splitted = query.substring(42).split(", ");
     for (let i = 0; i < splitted.length; i++) {
       let num = parseInt(splitted[i]);
       if (isPrime(num)) {
