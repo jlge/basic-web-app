@@ -1,3 +1,9 @@
+function isPrime (num: number) {
+  for (let i = 2, s = Math.sqrt(num); i <= s; i++) {
+    if (num % i === 0) return false;
+  }
+  return num > 1;
+}
 export default function QueryProcessor(query: string): string {
   if (query.includes("Which of the following numbers is the largest:")) {
     let splitted = query.substring(47).split(", ");
@@ -41,7 +47,14 @@ export default function QueryProcessor(query: string): string {
     let num1 = parseInt(s[s.length - 4]);
     let num2 = parseInt(s[s.length - 1].substring(0, (s[s.length - 1]).length));
     return (num1 - num2).toString();
-  } else if (query.includes("")) {
+  } else if (query.includes("primes")) {
+    let splitted = query.substring(60).split(", ");
+    for (let i = 0; i < splitted.length; i++) {
+      let num = parseInt(splitted[i]);
+      if (isPrime(num)) {
+        return num.toString();
+      }
+    }
     return ("");
   } else if (query.includes("")) {
     return ("");
