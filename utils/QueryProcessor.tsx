@@ -19,7 +19,9 @@ export default function QueryProcessor(query: string): string {
     let s = q.split(" ");
     let sum = 0;
     for (let i = 0; i < s.length; i++) {
-      sum += parseInt(s[i]);
+      if (!s[i].includes("plus")) {
+        sum += parseInt(s[i]);
+      }
     }
     return (sum).toString();
   } else if (query.includes("multiplied")) {
