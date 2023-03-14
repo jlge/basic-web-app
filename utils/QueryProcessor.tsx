@@ -30,8 +30,9 @@ export default function QueryProcessor(query: string): string {
     let splitted = query.substring(60).split(", ");
     let max = -1;
     for (let i = 0; i < splitted.length; i++) {
-      if (parseInt(splitted[i])) {
-        return ""
+      let num = parseInt(splitted[i]);
+      if ((Math.sqrt(num) % 1 === 0) && (Math.cbrt(num) % 1 === 0)) {
+        return num.toString();
       }
     }
     return max.toString();    
