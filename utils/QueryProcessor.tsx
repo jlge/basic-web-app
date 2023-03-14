@@ -1,4 +1,21 @@
 export default function QueryProcessor(query: string): string {
+  if (query.includes("Which of the following numbers is the largest:")) {
+    let splitted = query.substring(47).split(", ");
+    let max = -1;
+    for (let i = 0; i < 3; i++) {
+      if (parseInt(splitted[i]) > max) {
+        max = parseInt(splitted[i])
+      }
+    }
+    return max.toString();    
+  }
+
+  if (query.includes("plus")) {
+    let s = query.split(" ");
+    let num1 = parseInt(s[s.length - 3]);
+    let num2 = parseInt(s[s.length - 1].substring(0, (s[s.length - 1]).length - 1));
+    return "";
+  }
   if (query.includes("What is your name?")) {
     return (
       "jk"
@@ -7,7 +24,7 @@ export default function QueryProcessor(query: string): string {
     return ("purple");
   } else if (query.includes("Where are you from?")) {
     return ("chicago");
-  } else if (query.includes("	Which of the following numbers is the largest: 51, 87, 68?")) {
+  } else if (query.includes("Which of the following numbers is the largest: 51, 87, 68?")) {
     return ("87");
   } else if (query.includes("")) {
     return ("");
