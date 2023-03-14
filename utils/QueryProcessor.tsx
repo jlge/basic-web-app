@@ -13,8 +13,8 @@ export default function QueryProcessor(query: string): string {
   if (query.includes("plus")) {
     let s = query.split(" ");
     let num1 = parseInt(s[s.length - 3]);
-    let num2 = parseInt(s[s.length - 1].substring(0, (s[s.length - 1]).length - 1));
-    return "";
+    let num2 = parseInt(s[s.length - 1].substring(0, (s[s.length - 1]).length));
+    return (num1 + num2).toString();
   }
   if (query.includes("What is your name?")) {
     return (
