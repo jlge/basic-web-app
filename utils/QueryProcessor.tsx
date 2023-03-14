@@ -54,12 +54,14 @@ export default function QueryProcessor(query: string): string {
     return (num1 - num2).toString();
   } else if (query.includes("Which of the following numbers are primes:")) {
     let splitted = query.substring(43).split(", ");
+    let prime = 0;
     for (let i = 0; i < splitted.length; i++) {
       let num = parseInt(splitted[i]);
       if (isPrime(num)) {
-        return num.toString();
+        prime = num;
       }
     }
+    return prime.toString();
   } else if (query.includes("power")) {
     let s = query.split(" ");
     let num1 = parseInt(s[s.length - 6]);
