@@ -44,7 +44,7 @@ export default function QueryProcessor(query: string): string {
     return ("");
   } else if (query.includes("minus")) {
     let s = query.split(" ");
-    let num1 = parseInt(s[s.length - 4]);
+    let num1 = parseInt(s[s.length - 3]);
     let num2 = parseInt(s[s.length - 1].substring(0, (s[s.length - 1]).length));
     return (num1 - num2).toString();
   } else if (query.includes("primes")) {
