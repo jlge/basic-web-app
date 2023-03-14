@@ -53,7 +53,7 @@ export default function QueryProcessor(query: string): string {
     let num2 = parseInt(s[s.length - 1].substring(0, (s[s.length - 1]).length));
     return (num1 - num2).toString();
   } else if (query.includes("Which of the following numbers are primes:")) {
-    let splitted = query.substring(42).split(", ");
+    let splitted = query.substring(43).split(", ");
     for (let i = 0; i < splitted.length; i++) {
       let num = parseInt(splitted[i]);
       if (isPrime(num)) {
@@ -63,7 +63,7 @@ export default function QueryProcessor(query: string): string {
   } else if (query.includes("power")) {
     let s = query.split(" ");
     let num1 = parseInt(s[s.length - 6]);
-    let num2 = parseInt(s[s.length - 1].substring(0, (s[s.length - 1]).length));
+    let num2 = parseInt(s[s.length - 1]);
     return (num1 ** num2).toString();
   } else if (query.includes("")) {
     return ("");
